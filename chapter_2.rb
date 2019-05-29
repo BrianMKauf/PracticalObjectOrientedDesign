@@ -17,6 +17,12 @@ cog       = 27
 ratio     = chainring / cog.to_f
 puts ratio                        # -> 1.11111111111111
 
+
+=begin
+Now the diameters method has no knowledge of the internal structure of the array. 
+All diameters knows is that the message wheels returns an enum and that each enumerated thing responds to rim and tire
+i.e. Where we previously referenced cell[1] we are now referencing tire
+=end
 ############## Page 19 ##############
 class Gear
   attr_reader :chainring, :cog
