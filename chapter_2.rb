@@ -1,3 +1,11 @@
+=begin
+The diameters method depends upon the arrays structure, if the structure changes then this code must change. 
+You also will have references to the arrays structure all over the code. 
+You do not want to duplicate that 0 is rim and 1 is tire throughout your code when accessing data(which stores the array)
+
+In Ruby, it is easy to separate structure from meaning. 
+Just as you can use a method to wrap an instance variable, you can use a Ruby Struct class to wrap a structure
+=end
 ############## Page 18 ##############
 chainring = 52                    # number of teeth
 cog       = 11
