@@ -9,15 +9,6 @@ cog       = 27
 ratio     = chainring / cog.to_f
 puts ratio                        # -> 1.11111111111111
 
-
-=begin
-The diameters method depends upon the arrays structure, if the structure changes then this code must change. 
-You also will have references to the arrays structure all over the code. 
-You do not want to duplicate that 0 is rim and 1 is tire throughout your code when accessing data(which stores the array)
-
-In Ruby, it is easy to separate structure from meaning. 
-Just as you can use a method to wrap an instance variable, you can use a Ruby Struct class to wrap a structure
-=end
 ############## Page 19 ##############
 class Gear
   attr_reader :chainring, :cog
@@ -34,12 +25,6 @@ end
 puts Gear.new(52, 11).ratio        # -> 4.72727272727273
 puts Gear.new(30, 27).ratio        # -> 1.11111111111111
 
-
-=begin
-Now the diameters method has no knowledge of the internal structure of the array. 
-All diameters knows is that the message wheels returns an enum and that each enumerated thing responds to rim and tire
-i.e. Where we previously referenced cell[1] we are now referencing tire
-=end
 ############## Page 20 ##############
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
@@ -116,6 +101,16 @@ end
     @cog * (foo? ? bar_adjustment : baz_adjustment)
   end
 
+
+=begin
+The diameters method depends upon the arrays structure, if the structure changes then this code must change. 
+You also will have references to the arrays structure all over the code. 
+You do not want to duplicate that 0 is rim and 1 is tire throughout your code when accessing data(which stores the array)
+
+In Ruby, it is easy to separate structure from meaning. 
+Just as you can use a method to wrap an instance variable, you can use a Ruby Struct class to wrap a structure
+=end
+
 ############## Page 26 ##############
 class ObscuringReferences
   attr_reader :data
@@ -134,6 +129,12 @@ end
 ############## Page 27 ##############
 # rim and tire sizes (now in milimeters!) in a 2d array
 @data = [[622, 20], [622, 23], [559, 30], [559, 40]]
+
+=begin
+Now the diameters method has no knowledge of the internal structure of the array. 
+All diameters knows is that the message wheels returns an enum and that each enumerated thing responds to rim and tire
+i.e. Where we previously referenced cell[1] we are now referencing tire
+=end
 
 ############## Page 28 ##############
 class RevealingReferences
