@@ -1,3 +1,12 @@
+# An object has a dependency when it knows:
+#     * The name of another class. Gear expects a class named Wheel to exist
+#     * The name of a message that it intends to send someone other than self. 
+#       Gear expects a Wheel instance to respond to diameter
+#     * The arguments that a message requires. Gear knows that Wheel.new requires a rim and 
+#       a tire
+#     * The order of those arguments. Gear knows the first argument to Wheel.new should be rim
+#     * and the second should be tire.
+
 ############## Page 36 ##############
 class Gear
   attr_reader :chainring, :cog, :rim, :tire
